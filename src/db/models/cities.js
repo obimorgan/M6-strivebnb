@@ -1,0 +1,28 @@
+/** @format */
+
+import sequelize from "../connection.js";
+import sequel from "sequelize";
+
+const { DataTypes } = sequel;
+
+const Cities = sequelize.define("Cities", {
+  id: {
+    primaryKey: true,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUID4,
+  },
+  city: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  country: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  image: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
+
+export default Cities;
