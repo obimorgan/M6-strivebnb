@@ -1,0 +1,36 @@
+{
+  "name": "m6-strivebnb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "14.16.0"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "nodemon dotenv/config src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obimorgan/M6-strivebnb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obimorgan/M6-strivebnb/issues"
+  },
+  "homepage": "https://github.com/obimorgan/M6-strivebnb#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "http-errors": "^2.0.0",
+    "pg": "^8.7.1",
+    "sequelize": "^6.12.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
