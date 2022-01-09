@@ -2,7 +2,7 @@
 
 import express from "express";
 import cors from "cors";
-// import { testDB } from "./db/connection";
+import { testDB } from "./db/connection.js";
 
 const server = express();
 const PORT = process.env.PORT;
@@ -12,5 +12,5 @@ server.use(cors());
 
 server.listen(PORT, () => {
   console.log("Server is running on:", PORT);
-  // testDB();
+  testDB();
 });
