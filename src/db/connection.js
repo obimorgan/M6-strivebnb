@@ -19,7 +19,8 @@ const sequelize = new Sequelize(DATABASE_URL, {
 
 export const testDB = async () => {
   try {
-    await sequelize.authenticate({ logging: false });
+    // await sequelize.authenticate({ logging: false });
+    await sequelize.authenticate({ force: true });
     console.log("DB is authenticated");
     await sequelize
       .sync()

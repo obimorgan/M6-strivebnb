@@ -11,10 +11,6 @@ const Users = sequelize.define("users", {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
   },
-  users: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
   first_name: {
     type: DataTypes.TEXT,
     allowNull: false,
@@ -29,6 +25,10 @@ const Users = sequelize.define("users", {
   },
   account_name: {
     type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  image_url: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
 });

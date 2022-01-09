@@ -2,7 +2,7 @@
 
 import express from "express";
 import cors from "cors";
-import { testDB } from "./db/connection.js";
+// import { testDB } from "./db/connection.js";
 
 import usersRouter from "./routes/users/index.js";
 import propertiesRouter from "./routes/properties/index.js";
@@ -20,5 +20,5 @@ server.use("/cities", citiesRouter);
 
 server.listen(PORT, () => {
   console.log("Server is running on:", PORT);
-  testDB();
+  // testDB();
 });

@@ -5,7 +5,7 @@ import sequel from "sequelize";
 
 const { DataTypes } = sequel;
 
-const Properties = sequelize.define("Cities", {
+const Properties = sequelize.define("properties", {
   id: {
     primaryKey: true,
     type: DataTypes.UUID,
