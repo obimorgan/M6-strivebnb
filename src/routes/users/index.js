@@ -27,12 +27,12 @@ userRouter
     }
   });
 userRouter
-  .route("/:id")
+  .route("/:userId")
   .get(async (req, res, next) => {
     try {
-      if (req.params.id.length !== 36)
+      if (req.params.userId.length !== 36)
         return next({ code: 400, msg: "invalid id" });
-      const user = await Users.findByPk(req.params.id);
+      const user = await Users.findByPk(req.params.userId);
       res.send(user);
     } catch (e) {
       console.log(e);
@@ -42,12 +42,12 @@ userRouter
   .put(async (req, res, next) => {
     console.log(req.params);
     try {
-      if (req.params.id.length !== 36)
+      if (req.params.userId.length !== 36)
         return res.status(400).send("Invalid ID");
       if (req.body === {}) return res.status(400).send("Must Provide A Body");
       console.log("Req.Body", req.body);
       const editUser = await Users.update(req.body, {
-        where: { id: req.params.id },
+        where: { id: req.params.userId },
         returning: true,
       });
       res.status(201).send(editUser[1][0]);
@@ -58,10 +58,10 @@ userRouter
   })
   .delete(async (req, res, next) => {
     try {
-      if (req.params.id.length !== 36)
+      if (req.params.userId.length !== 36)
         return res.status(400).send("Invalid ID");
       const deleteUser = await Users.destroy({
-        where: { id: req.params.id },
+        where: { id: req.params.userId },
       });
       if (deleteUser > 0) {
         res.send("ok");

@@ -15,13 +15,9 @@ const Properties = sequelize.define("properties", {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  city: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-  country: {
-    type: DataTypes.TEXT,
-    allowNull: false,
+  image: {
+    type: DataTypes.STRING,
+    allowNul: false,
   },
   price: {
     type: DataTypes.INTEGER,
