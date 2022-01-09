@@ -1,7 +1,8 @@
 /** @format */
 
 import express from "express";
-import { Properties } from "../../db/models/index.js";
+import { Properties, Cities } from "../../db/models/index.js";
+import { Op } from "sequelize";
 
 const propertiesRouter = express.Router();
 
@@ -94,5 +95,34 @@ propertiesRouter
       next(e);
     }
   });
+propertiesRouter.route("/search").get(async (req, res, next) => {
+  try {
+    const properties = await Properties.findAll({
+      include: [
+        {
+          model: Cities,
+          through: { attrtibutes: ["city", "country"] },
+          where: {
+            ...(req.query.cities && {
+              name: { [Op.in]: req.cities.city.split(",") },
+            }),
+          },
+        },
+      ],
+      where: {
+        ...(req.query.search && {
+          [Op.or]: [
+            { city: { [Op.iLike]: `%${req.query.search}%` } },
+            { country: { [Op.iLike]: `%${req.query.search}%` } },
+          ],
+        }),
+      },
+    });
+    res.send(properties);
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
 
 export default propertiesRouter;
