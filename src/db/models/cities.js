@@ -9,7 +9,7 @@ const Cities = sequelize.define("Cities", {
   id: {
     primaryKey: true,
     type: DataTypes.UUID,
-    defaultValue: DataTypes.UUID4,
+    defaultValue: DataTypes.UUIDV4,
   },
   city: {
     type: DataTypes.TEXT,

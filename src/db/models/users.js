@@ -5,11 +5,11 @@ import sequel from "sequelize";
 
 const { DataTypes } = sequel;
 
-const Users = sequelize.define("user", {
+const Users = sequelize.define("users", {
   id: {
     primaryKey: true,
     type: DataTypes.UUID,
-    defaultValue: DataTypes.UUID4,
+    defaultValue: DataTypes.UUIDV4,
   },
   users: {
     type: DataTypes.TEXT,

@@ -9,3 +9,5 @@ Cities.hasMany(Properties, { onDelete: "CASCADE" });
 
 Users.hasMany(Properties, { onDelete: "CASCADE" });
 Properties.belongsTo(Users, { onDelete: "CASCADE" });
+
+export { Users, Cities, Properties };

@@ -1,15 +1,15 @@
 /** @format */
 
 import express from "express";
-import { Users } from "../../db/models/index.js";
+import { Properties } from "../../db/models/index.js";
 
-const userRouter = express.Router();
+const propertiesRouter = express.Router();
 
-userRouter
+propertiesRouter
   .route("/")
   .get(async (req, res, next) => {
     try {
-      const user = await Users.findAll();
+      const user = await Properties.findAll();
       res.send(user);
     } catch (e) {
       console.log(e);
@@ -19,7 +19,7 @@ userRouter
   .post(async (req, res, next) => {
     try {
       console.log(req.body);
-      const user = await Users.create(req.body);
+      const user = await Properties.create(req.body);
       res.send(user);
     } catch (e) {
       console.log(e);
@@ -27,4 +27,4 @@ userRouter
     }
   });
 
-export default userRouter;
+export default propertiesRouter;

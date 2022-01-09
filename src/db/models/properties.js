@@ -1,7 +1,7 @@
 /** @format */
 
 import sequelize from "../connection.js";
-import sequel, { DATE } from "sequelize";
+import sequel from "sequelize";
 
 const { DataTypes } = sequel;
 
@@ -9,7 +9,7 @@ const Properties = sequelize.define("Cities", {
   id: {
     primaryKey: true,
     type: DataTypes.UUID,
-    defaultValue: DataTypes.UUID4,
+    defaultValue: DataTypes.UUIDV4,
   },
   name: {
     type: DataTypes.TEXT,
