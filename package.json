@@ -1,5 +1,5 @@
 {
-  "name": "m6buildweek1",
+  "name": "m6-strivebnb",
   "version": "1.0.0",
   "description": "",
   "engines": {
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/obimorgan/M6BuildWeek1.git"
+    "url": "git+https://github.com/obimorgan/M6-strivebnb.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/obimorgan/M6BuildWeek1/issues"
+    "url": "https://github.com/obimorgan/M6-strivebnb/issues"
   },
-  "homepage": "https://github.com/obimorgan/M6BuildWeek1#readme",
+  "homepage": "https://github.com/obimorgan/M6-strivebnb#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.2",
