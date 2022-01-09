@@ -19,11 +19,10 @@ const sequelize = new Sequelize(DATABASE_URL, {
 
 export const testDB = async () => {
   try {
-    // await sequelize.authenticate({ logging: false });
-    await sequelize.authenticate({ force: true });
+    await sequelize.authenticate({ logging: false });
     console.log("DB is authenticated");
     await sequelize
-      .sync()
+      .sync({ alter: true })
       .then(() => console.log("The server is connected to postgres"));
     console.log("DB is established");
   } catch (error) {
