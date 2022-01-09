@@ -30,6 +30,10 @@ userRouter
   .route("/:id")
   .get(async (req, res, next) => {
     try {
+      if (req.params.id.length !== 36)
+        return next({ code: 400, msg: "invalid id" });
+      const user = await Users.findByPk(req.params.id);
+      res.send(user);
     } catch (e) {
       console.log(e);
       next(e);
@@ -43,7 +47,7 @@ userRouter
       if (req.body === {}) return res.status(400).send("Must Provide A Body");
       console.log("Req.Body", req.body);
       const editUser = await Users.update(req.body, {
-        where: req.params.id,
+        where: { id: req.params.id },
         returning: true,
       });
       res.status(201).send(editUser[1][0]);
@@ -54,12 +58,12 @@ userRouter
   })
   .delete(async (req, res, next) => {
     try {
-      const result = await Users.destroy({
-        where: {
-          id: req.params.id,
-        },
+      if (req.params.id.length !== 36)
+        return res.status(400).send("Invalid ID");
+      const deleteUser = await Users.destroy({
+        where: { id: req.params.id },
       });
-      if (result > 0) {
+      if (deleteUser > 0) {
         res.send("ok");
       } else {
         res.status(404).send("Not found");
